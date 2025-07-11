@@ -1,0 +1,414 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000; 
+  color: #fff;           
+  font-family: "Helvetica Neue", sans-serif;
+  line-height: 1.5;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* Increase bottom padding to push the brand name down a bit */
+  padding: 1.5rem 2rem 1.2rem;
+  background: transparent;
+}
+
+.nav-left {
+  display: flex;
+  align-items: flex-end; 
+}
+
+/* Logo is smaller now */
+.logo {
+  width: 40px; 
+  height: auto;
+  margin-right: 0.2rem; 
+}
+
+/* "Scalefify" top-left brand text closer to logo */
+.logo-text {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  margin-left: 0.2rem;  
+}
+
+/* HERO SECTION */
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 4rem 2rem;
+  overflow: hidden;
+}
+
+/* Gradient Text for main heading */
+.gradient-text {
+  background: linear-gradient(90deg, #ff00ff, #00ffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+/* Subtitle styling */
+.hero-subtitle {
+  /* horizontal flex container for "Without" + box */
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 2rem;
+  margin: 1rem 0;
+}
+
+/* The static box that remains visible */
+.cycling-box {
+  display: inline-block;
+  position: relative;
+  overflow: hidden; 
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+
+  /* Animated background gradient for the box */
+  background: linear-gradient(270deg, #6ce3ff, #ff00ff, #00ffff);
+  background-size: 600% 600%;
+  animation: gradientShift 6s infinite ease;
+}
+
+/* The actual text that slides */
+.cycling-text {
+  display: inline-block;  
+  font-weight: 700;
+  color: #000; 
+  min-width: 5ch;
+}
+
+/* Hero description paragraph */
+.hero-description {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 1rem auto 2rem;
+  color: #ccc;
+}
+
+/* CTA Buttons Container */
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
+
+/* Single button centering */
+.cta-buttons .btn-waitlist {
+  margin: 0 auto;
+}
+
+/* CTA Button */
+.btn-demo {
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.btn-demo:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Waitlist Button */
+.btn-waitlist {
+  background: linear-gradient(135deg, #ff00ff, #00ffff);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.btn-waitlist:hover {
+  background: linear-gradient(135deg, #e600e6, #00e6e6);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 0, 255, 0.3);
+}
+
+/* Wave container */
+.wave-container {
+  position: relative;
+  margin-top: 3rem;
+  text-align: center;
+  perspective: 1000px; /* for 3D tilt */
+}
+
+.wave-img {
+  max-width: 100%;
+  height: auto;
+  opacity: 0.8;
+  animation: waveColorShift 6s infinite linear;
+
+  /* 3D transforms */
+  transition: transform 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+/* Flip effect */
+.flipped {
+  transform: rotateY(180deg);
+}
+
+/* === SOCIAL ICONS === */
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Navbar right section */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 100%;
+}
+
+/* Demo button in navbar */
+.nav-right .btn-demo {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  white-space: nowrap;
+  align-self: center;
+}
+
+/* Social icons <img> */
+.social-icons .icon {
+  width: 30px;
+  height: auto;
+  transition: all 0.2s ease;
+  border-radius: 4px; 
+}
+
+/* On hover, you can do something subtle if you like */
+.social-icons .icon:hover {
+  opacity: 0.7;
+}
+
+/* On click (or :active) – gradient background behind the icon */
+.social-icons .icon:active {
+  background: linear-gradient(270deg, #6ce3ff, #ff00ff, #00ffff);
+}
+
+.calendar-section {
+  text-align: center;
+  margin: 2rem 0; /* spacing above/below */
+}
+
+.calendar-section iframe {
+  width: 100%;
+  max-width: 800px; /* matches the width in your embed code */
+  /*height: 600px;*/ 
+  border: 1px solid #777;
+}
+
+.brand-link {
+  display: flex;
+  align-items: flex-end;
+  text-decoration: none; 
+}
+
+.brand-link:hover {
+  /* Optional: add a hover style if you like */
+}
+
+.slide-in-top {
+  animation: slideInTop 0.6s forwards;
+}
+
+@keyframes slideInTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+/* Slide-out through bottom */
+.slide-out-bottom {
+  animation: slideOutBottom 0.6s forwards;
+}
+
+@keyframes slideOutBottom {
+  0% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
+
+/* FOOTER */
+footer {
+  background: #000;
+  color: #ccc;
+  font-size: 0.9rem;
+  margin-top: 6rem;
+}
+
+/* Top row container */
+.footer-top {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Bottom row container */
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo + brand row in footer */
+.footer-logo-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Footer logo styling */
+.footer-logo {
+  width: 40px;    
+  height: auto;
+  margin-right: 0.2rem; 
+}
+
+
+/* Footer brand name styling */
+.footer-brand-name {
+  font-size: 1.3rem; 
+  font-weight: 700;
+  color: #fff;
+  margin-left: 0.2rem;
+}
+
+/* Tagline (left) */
+.footer-tagline {
+  margin: 0;
+  color: #ccc;
+}
+
+/* Berlin text (right) */
+.footer-berlin {
+  margin: 0;
+  color: #ccc;
+  text-align: right;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-left,
+  .footer-right {
+    margin-bottom: 1rem;
+  }
+
+  /* Make buttons stack vertically on mobile */
+  .cta-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .btn-demo,
+  .btn-waitlist {
+    width: 100%;
+    max-width: 280px;
+    padding: 0.875rem 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  .gradient-text {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.6rem;
+  }
+}
+
+/* Fade Animations (if you still need them for other elements) */
+.fade-out {
+  animation: fadeOut 0.5s forwards;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Wave color shift */
+@keyframes waveColorShift {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+/* Gradient shift for the box background */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

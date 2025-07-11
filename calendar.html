@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scalefify - Book a Demo</title>
+
+  <!-- Main site CSS -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Calendly inline widget script -->
+  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</head>
+<body>
+  <!-- HEADER with clickable logo & brand name -->
+  <header>
+    <nav class="navbar">
+      <div class="nav-left">
+        <!-- Clicking this goes back to index.html -->
+        <a href="index.html" class="brand-link">
+          <img src="logo.png" alt="Scalefify Logo" class="logo" />
+          <h2 class="logo-text">Scalefify</h2>
+        </a>
+      </div>
+
+      <div class="nav-right">
+        <div class="social-icons">
+          <a href="https://discord.gg/Tdxcdaj5" target="_blank">
+            <img src="discord-icon.jpg" alt="Discord" class="icon" />
+          </a>
+          <a href="https://www.linkedin.com/in/scalelify-ai-902982358/" target="_blank">
+            <img src="Linkedin-icon.jpg" alt="LinkedIn" class="icon" />
+          </a>
+          <a href="https://x.com/scalelify" target="_blank">
+            <img src="x-icon.jpg" alt="X (Twitter)" class="icon" />
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="calendar-section">
+      <h1>Book a Demo</h1>
+      <p>Choose an available date below:</p>
+
+      <!-- Calendly Inline Widget -->
+      <div 
+        class="calendly-inline-widget" 
+        data-url="https://calendly.com/scalelify-support/30min" 
+        data-auto-size="1"
+        style="min-width:320px; height:630px;">
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-logo-brand">
+        <img 
+          src="logo.png" 
+          alt="Scalefify Logo" 
+          class="footer-logo" 
+        />
+        <span class="footer-brand-name">Scalefify</span>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      <p class="footer-tagline">The easiest way to build native iOS apps</p>
+      <p class="footer-berlin">Built in Berlin © Scalefify Inc.</p>
+    </div>
+  </footer>
+</body>
+</html>
