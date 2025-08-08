@@ -26,52 +26,17 @@ function cycleText() {
 // Trigger cycleText every 6 seconds (6000 ms)
 setInterval(cycleText, 6000);
 
-// 2) "GET A DEMO" BUTTON NAVIGATION
-const getDemoBtns = [
-  document.getElementById("getDemoBtn"),
-  document.getElementById("getDemoBtn2"),
-];
+// 2) "REQUEST A DEMO" BUTTON NAVIGATION
+const requestDemoBtn = document.getElementById("requestDemoBtn");
 
-// Navigate to 'calendar.html' when user clicks "Get a demo"
-getDemoBtns.forEach((btn) => {
-  if (btn) {
-    btn.addEventListener("click", () => {
-      window.location.href = "calendar.html";
-    });
-  }
-});
-
-// 3) WAITLIST FUNCTIONALITY
-const joinWaitlistBtn = document.getElementById("joinWaitlistBtn");
-
-// Initialize EmailJS
-emailjs.init("GfZ24Y7qefe8eiOZ1");
-
-if (joinWaitlistBtn) {
-  joinWaitlistBtn.addEventListener("click", () => {
-    const email = prompt("Enter your email to join the waitlist:");
-    
-    if (email && email.includes("@")) {
-      // Store email in localStorage for backup
-      const waitlistEmails = JSON.parse(localStorage.getItem("waitlistEmails") || "[]");
-      waitlistEmails.push({
-        email: email,
-        timestamp: new Date().toISOString()
-      });
-      localStorage.setItem("waitlistEmails", JSON.stringify(waitlistEmails));
-      
-      // Send email to yourself
-      sendEmailToOwner(email);
-      
-      alert(`Thank you! ${email} has been added to the waitlist. We'll notify you when Scaleify is ready!`);
-      
-      // Log to console for debugging
-      console.log("Current waitlist emails:", waitlistEmails);
-    } else if (email) {
-      alert("Please enter a valid email address.");
-    }
+// Navigate to 'calendar.html' when user clicks "Request a Demo"
+if (requestDemoBtn) {
+  requestDemoBtn.addEventListener("click", () => {
+    window.location.href = "calendar.html";
   });
 }
+
+// Note: Email functionality removed since button now navigates to calendar
 
 // Function to send email to yourself (using EmailJS)
 function sendEmailToOwner(userEmail) {
